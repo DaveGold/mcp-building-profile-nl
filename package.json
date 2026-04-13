@@ -1,0 +1,59 @@
+{
+  "name": "mcp-building-profile-nl",
+  "version": "0.1.0",
+  "description": "MCP server exposing a rich Dutch building profile tool (BAG Kadaster + EP-Online RVO energielabels). A reference implementation of a well-designed MCP server.",
+  "type": "module",
+  "bin": {
+    "mcp-building-profile-nl": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "inspect": "npm run build && npx @modelcontextprotocol/inspector node --env-file=.env dist/index.js",
+    "http": "node dist/http.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:live": "tsx scripts/smoke.ts 3543AR 1",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "bag",
+    "kadaster",
+    "ep-online",
+    "energielabel",
+    "nederland",
+    "dutch",
+    "buildings",
+    "claude"
+  ],
+  "author": "David Golverdingen",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "express": "^5.2.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/inspector": "^0.14.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.19.11",
+    "tsx": "^4.20.4",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.8"
+  }
+}

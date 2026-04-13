@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "building-profile-nl": {
+      "command": "node",
+      "args": ["--env-file=.env", "dist/index.js"]
+    }
+  }
+}
